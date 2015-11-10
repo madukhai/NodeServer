@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>node server</title>
+	<script type="text/javascript" src='angular.min.js'></script>
+	<script type="text/javascript" src='app.js'></script>
+
+	<script type="text/javascript" src='appservice.js'></script>
+	<script type="text/javascript" src='appCtrl.js'></script>
+</head>
+<body ng-app="myApp" ng-controller="AppCtrl as Ctrl">
+	<div >
+		
+		<button ng-click="Ctrl.get_message()">message</button><br>
+			
+		<p>
+			Hi {{Ctrl.name}}, {{Ctrl.message}}
+		</p>
+		<form ng-submit = 'Ctrl.set_message()'>
+			<input type='text' ng-model='Ctrl.new_massage' />
+			<button ng-if='Ctrl.new_massage'>set</button>
+		</form>
+		<button ng-click="Ctrl.show_the_time('iso')">What is Time Now?</button>
+		<button ng-click="Ctrl.show_the_time('unixtime')">What is Time Now?(unixtime)</button>
+		<p>
+			{{Ctrl.time}}
+		</p>
+	</div>
+	<div class="stripe">
+		<form ng-submit='Ctrl.submit()'>
+			<input type='text' ng-model='Ctrl.cardHolder' placeholder="card holder" />
+			<input type='number' ng-model='Ctrl.cardNumber' placeholder='card number' />
+			<button>submit</button>
+		</form>
+		
+	</div>
+</body>
+</html>
